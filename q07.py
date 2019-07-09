@@ -16,3 +16,11 @@
 ##    ('9', ['A', 'B', 'E', 'C'])
 ##
 ##
+txt = open('data.csv', 'r').readlines()
+txt = [z.replace('\t',' ') for z in txt]
+txt = [z.replace('\n','') for z in txt]
+txt = [z.split(' ') for z in txt]
+y = sorted(set([z[1] for z in txt])) 
+for i in y:
+    a = [m[0] for m in txt if m[1] == i]
+    print((i, a))

@@ -14,3 +14,11 @@
 ## 11,2
 ## 12,3
 ##
+txt = open('data.csv', 'r').readlines()
+txt = [z.replace('\t',' ') for z in txt]
+txt = [z.replace('\n','') for z in txt]
+txt = [z.split(' ') for z in txt]
+mes1 = [i[2].split('-')[1] for i in txt] 
+mes2 = sorted(set(mes1))                 
+for z in mes2:
+    print(str(z)+","+ str(mes1.count(z)))
